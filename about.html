@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #ffeef6;
+      font-family: "Poppins", sans-serif;
+    }
+    .about-section {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+      text-align: center;
+    }
+    .profile {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      background: #fff8fb;
+      box-shadow: 0 6px 16px rgba(0,0,0,.1);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #f8c8dc;
+      margin-bottom: 10px;
+    }
+    .profile h2 {
+      color: #e75480;
+      font-size: 1.5rem;
+      margin: 15px 0;
+    }
+    .profile ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .profile li {
+      padding: 6px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+    .profile li:last-child { border-bottom: none; }
+
+    /* Couple frame */
+    .couple-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 40px;
+      position: relative;
+      flex-wrap: wrap;
+    }
+    .couple-photo {
+      border: 4px solid #f8c8dc;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+      transition: transform .3s ease;
+    }
+    .couple-photo img {
+      width: 160px;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .couple-photo:hover { transform: scale(1.05); }
+    .love-center {
+      font-size: 48px;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .profile img { width: 100px; height: 100px; }
+      .profile h2 { font-size: 1.2rem; }
+      .couple-photo img { width: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="album.html">Album</a>
+    <a href="about.html" class="active">About</a>
+  </nav>
+  <section class="about-section">
+
+    <!-- Profil Citra -->
+    <div class="profile">
+      <img src="8461031890_87356244503604_1747899382083.png" alt="Foto Citra">
+      <h2>✨ Tentang Citra ✨</h2>
+      <ul>
+        <li><strong>Nama:</strong> Citra</li>
+        <li><strong>Lahir:</strong> 8 Juni</li>
+        <li><strong>Makanan Favorit:</strong> mie ayam, kacang ijo</li>
+        <li><strong>Minuman Favorit:</strong> es jagung, ultra milk, jus mangga, capucinno</li>
+      </ul>
+    </div>
+
+    <!-- Profil Ray -->
+    <div class="profile">
+      <img src="8461031890_86149346564470_1755425694282.png" alt="Foto Ray">
+      <h2>✨ Tentang Ray ✨</h2>
+      <ul>
+        <li><strong>Nama:</strong> Ray</li>
+        <li><strong>Lahir:</strong> 9 Oktober 2004</li>
+        <li><strong>Makanan Favorit:</strong> Ayam, Mie Goreng</li>
+        <li><strong>Minuman Favorit:</strong> Susu</li>
+      </ul>
+    </div>
+
+    <!-- Couple Frame -->
+    <div class="couple-frame">
+      <div class="couple-photo">
+        <img src="8461031890_87356244503604_1747899382083.png" alt="Citra">
+      </div>
+      <div class="love-center">❤️</div>
+      <div class="couple-photo">
+        <img src="8461031890_86149346564470_1755425694282.png" alt="Ray">
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>

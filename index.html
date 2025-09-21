@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Lovely Space 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity .3s ease;
+      z-index: 9999;
+    }
+    .lightbox.active {
+      opacity: 1; visibility: visible;
+    }
+    .lightbox-inner {
+      position: relative;
+      text-align: center;
+      max-width: 90vw;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    }
+    .lb-close, .lb-prev, .lb-next {
+      position: absolute;
+      background: rgba(255,255,255,.85);
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    }
+    .lb-close { top: 10px; right: 10px; }
+    .lb-prev { top: 50%; left: -60px; transform: translateY(-50%); }
+    .lb-next { top: 50%; right: -60px; transform: translateY(-50%); }
+    .lightbox-caption {
+      margin-top: 12px;
+      color: #fff;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- floating bg hearts -->
+  <div class="bg-heart" aria-hidden="true"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="album.html">Album</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <h1>💖 Our Lovely Space 💖</h1>
+    <p class="lead">Place where i can see my Angel ✨</p>
+    <div class="bears" aria-hidden="true">🤎🤍</div>
+
+    <div class="photo-grid" id="grid">
+      <!-- Card 1 -->
+      <figure class="photo-frame" data-caption="My Love 💕">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-07 at 00.02.36_ace2d8b1.jpg" alt="Moment Lucu">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Love 💕</figcaption>
+      </figure>
+
+      <!-- Card 2 -->
+      <figure class="photo-frame" data-caption="My Pookie 🐻">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-05 at 03.29.35_735f1dab.jpg" alt="Kangen Kamu">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Pookie 🐻</figcaption>
+      </figure>
+
+      <!-- Card 3 -->
+      <figure class="photo-frame" data-caption="My Happiness ✨">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-06 at 23.20.16_6bfd7eea.jpg" alt="Selalu Bahagia">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Happiness ✨</figcaption>
+      </figure>
+
+      <!-- Card 4 -->
+      <figure class="photo-frame" data-caption="Kenangan Manis 🌙">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-10 at 23.46.50_0c03cbc4.jpg" alt="Kenangan Manis">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Sweet Dreams 🌙</figcaption>
+      </figure>
+
+      <!-- Card 5 -->
+      <figure class="photo-frame" data-caption="My Cute Bear 🧸">
+        <div class="photo-media">
+          <img src="IMG-20250612-WA0000.jpg" alt="My Cute Bear">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Cute 🧸</figcaption>
+      </figure>
+
+      <!-- Card 6 -->
+      <figure class="photo-frame" data-caption="Sweet Like Candy 🍭">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-07-19 at 01.19.34_138a5398.jpg" alt="Sweet Like Candy">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Sweety 🍭</figcaption>
+      </figure>
+
+      <!-- Card 7 -->
+      <figure class="photo-frame" data-caption="Forever Us 💍">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-15 at 00.10.02_307c76c2.jpg" alt="Forever Us">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Wife 💍</figcaption>
+      </figure>
+
+      <!-- Card 8 -->
+      <figure class="photo-frame" data-caption="Love Song 🎶">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-14 at 23.58.39_0fbaa49f.jpg" alt="Love Song">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Favorit Voice 🎶</figcaption>
+      </figure>
+
+      <!-- Card 9 -->
+      <figure class="photo-frame" data-caption="Dreamy Vibes ☁️">
+        <div class="photo-media">
+          <img src="IMG-20250612-WA0002.jpg" alt="Dreamy Vibes">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Goals ☁️</figcaption>
+      </figure>
+
+      <!-- Card 10 -->
+      <figure class="photo-frame" data-caption="Lucky With You 🍀">
+        <div class="photo-media">
+          <img src="WhatsApp Image 2025-08-14 at 23.58.38_6f2eb295.jpg" alt="Lucky With You">
+          <div class="sparkle-layer"></div>
+        </div>
+        <figcaption class="caption">My Everything 🍀</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lb-close" id="lbClose" aria-label="Tutup">✕</button>
+      <button class="lb-prev" id="lbPrev" aria-label="Sebelumnya">❮</button>
+      <div class="lightbox-imgwrap"><img id="lbImg" alt=""></div>
+      <button class="lb-next" id="lbNext" aria-label="Berikutnya">❯</button>
+      <div class="lightbox-caption" id="lbCap"></div>
+    </div>
+  </div>
+
+<script>
+  const frames = document.querySelectorAll('.photo-frame');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCap');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+
+  let currentIndex = 0;
+  let images = [];
+
+  // Simpan semua gambar + caption
+  frames.forEach((frame, index) => {
+    const img = frame.querySelector('img');
+    const caption = frame.dataset.caption || "";
+    images.push({ src: img.src, caption });
+
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      showLightbox(currentIndex);
+    });
+  });
+
+  function showLightbox(index) {
+    lightbox.setAttribute("aria-hidden", "false");
+    lightbox.classList.add("active");
+    lbImg.src = images[index].src;
+    lbCap.textContent = images[index].caption;
+  }
+
+  lbClose.addEventListener('click', () => {
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+  });
+
+  lbNext.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showLightbox(currentIndex);
+  });
+
+  lbPrev.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showLightbox(currentIndex);
+  });
+
+  // Tutup jika klik area luar
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+    }
+  });
+</script>
+
+</body>
+</html>

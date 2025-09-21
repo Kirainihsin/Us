@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📸 Album Kita</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tambahan khusus slider */
+    .slider-container {
+      position: relative;
+      width: min(95vw, 900px);
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+      background: #fff;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      user-select: none;
+      pointer-events: none;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .caption {
+      position: absolute;
+      bottom: 12px; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,.8);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      color: var(--hotpink);
+    }
+    /* tombol navigasi */
+    .slider-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.85);
+      border: none; cursor: pointer;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 24px;
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
+    }
+    .slider-btn:hover { background:#fff; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* gaya gif */
+    .album-gif {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .album-gif img {
+      max-width: 180px;
+      border-radius: 20px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-heart" aria-hidden="true"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="album.html">Album</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <section id="album">
+    <h1>📸 Album Kita</h1>
+    <p class="lead">Geser foto atau pencet tombolnya ya sayang &lt;3</p>
+
+    <!-- Slider -->
+    <div class="slider-container">
+      <div class="slider-track" id="sliderTrack">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <img src="8461031890_10006853131_1749484369700.png" alt="Selfie Lucu">
+          <div class="caption">😍</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <img src="8461031890_10707252093_1753545163049.png" alt="Dinner Romantis">
+          <div class="caption">🍷</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <img src="8461031890_97169485068215_1751641275761.png" alt="Liburan Seru">
+          <div class="caption">🌴</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide">
+          <img src="8461031890_136583829770579_1750176207798.png" alt="Kenangan Malam">
+          <div class="caption">🌙</div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="slide">
+          <img src="8461031890_10006853131_1749483862370.png" alt="Sweet Moment">
+          <div class="caption">💖</div>
+        </div>
+        <!-- Slide 6 -->
+        <div class="slide">
+          <img src="8461031890_106525193781380_1755446320696.png" alt="Bersama Selalu">
+          <div class="caption">🤍</div>
+        </div>
+        <!-- Slide 7 -->
+        <div class="slide">
+          <img src="8461031890_114183207071930_1754073249529.png" alt="Tertawa Bahagia">
+          <div class="caption">😂</div>
+        </div>
+        <!-- Slide 8 -->
+        <div class="slide">
+          <img src="8461031890_86710642002144_1751688414021.png" alt="Forever Us">
+          <div class="caption">💍</div>
+        </div>
+      </div>
+      <button class="slider-btn prev" id="prevBtn">❮</button>
+      <button class="slider-btn next" id="nextBtn">❯</button>
+    </div>
+
+    <!-- GIF di bawah slider -->
+    <div class="album-gif">
+      <img src="0ac6afbeb2e793ad9cf11347c63a296e.gif" alt="Cute Hug">
+    </div>
+  </section>
+
+<script>
+  const track = document.getElementById('sliderTrack');
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let index = 0;
+
+  function updateSlide(){
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', ()=>{
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlide();
+  });
+
+  nextBtn.addEventListener('click', ()=>{
+    index = (index + 1) % slides.length;
+    updateSlide();
+  });
+
+  /* Swipe support (mobile) */
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  track.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if(endX < startX - 50) { 
+      index = (index + 1) % slides.length;
+      updateSlide();
+    }
+    if(endX > startX + 50) { 
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlide();
+    }
+  });
+</script>
+
+</body>
+</html>
